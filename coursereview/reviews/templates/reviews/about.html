@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}О сайте{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-5">
+                    <h1 class="display-4 text-primary mb-4 text-center">О нашем проекте</h1>
+                    <hr class="my-4">
+                    <div class="lead text-muted">
+                        <p class="mb-4">Мы собираем честные и непредвзятые отзывы о различных IT-курсах, чтобы помочь вам сделать правильный выбор.</p>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="d-inline-block p-3 bg-primary bg-opacity-10 rounded-circle mb-3">
+                                    <i class="bi bi-star-fill text-primary fs-4"></i>
+                                </div>
+                                <h5>Честные отзывы</h5>
+                                <p class="small">Реальные мнения от реальных студентов</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="d-inline-block p-3 bg-primary bg-opacity-10 rounded-circle mb-3">
+                                    <i class="bi bi-search text-primary fs-4"></i>
+                                </div>
+                                <h5>Удобный поиск</h5>
+                                <p class="small">Найдите курс своей мечты</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="d-inline-block p-3 bg-primary bg-opacity-10 rounded-circle mb-3">
+                                    <i class="bi bi-people-fill text-primary fs-4"></i>
+                                </div>
+                                <h5>Сообщество</h5>
+                                <p class="small">Общение с единомышленниками</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+{% endblock %}

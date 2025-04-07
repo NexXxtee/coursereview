@@ -59,7 +59,9 @@ ROOT_URLCONF = 'coursereview.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             BASE_DIR / 'templates'
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,3 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Моя отсебячина 
 AUTH_USER_MODEL = 'users.User' 
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
