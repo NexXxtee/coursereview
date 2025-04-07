@@ -24,15 +24,12 @@
     <!-- Навигация -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">CourseReview</a>
+            <a class="navbar-brand" href="{% url "reviews:course_list" %}">CourseReview</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Главная</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'reviews:about' %}">О сайте</a>
                     </li>
@@ -46,14 +43,14 @@
                             <a class="nav-link" href="#">Профиль</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Выйти</a>
+                            <a class="nav-link" href="{% url "users:logout" %}">Выйти</a>
                         </li>
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="#">Регистрация</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Войти</a>
+                            <a class="nav-link" href="{% url "users:login" %}">Войти</a>
                         </li>
                     {% endif %}
                 </ul>

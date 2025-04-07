@@ -6,4 +6,5 @@ app_name = 'reviews'
 urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('', views.CourseListView.as_view(), name='course_list'),
+    path('courses/<slug:slug>/', views.CourseDetailView.as_view(), name='course_detail'),
 ]

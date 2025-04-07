@@ -12,3 +12,11 @@ class CourseListView(ListView):
     template_name = 'reviews/course_list.html'
     context_object_name = 'courses'
     ordering = ['-created_at']  # Newest first
+    
+
+class CourseDetailView(DetailView):
+    model = Course
+    template_name = 'reviews/course_detail.html'
+    context_object_name = 'course'
+    slug_field = 'slug'
+    slug_url_kwarg = 'slug'
