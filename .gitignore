@@ -1,6 +1,10 @@
-# Virtual environment
+cvenv/
 venv/
 env/
 *.env
 .venv/
 .sharvenv/
+*env*/
+__pycache__/
+*.pyc
+.env
