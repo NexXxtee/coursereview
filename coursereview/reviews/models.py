@@ -9,8 +9,7 @@ class Course(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата обновления")
     image = models.ImageField(
-        upload_to="courses/%Y/%m/%d/", 
-        default=None,
+        upload_to="courses/%Y/%m/%d/",   
         blank=True, 
         null=True, 
         verbose_name="Фото"
@@ -26,7 +25,8 @@ class Course(models.Model):
         decimal_places=2, 
         null=True, 
         blank=True,
-        verbose_name="Цена"
+        validators = [MinValueValidator(0)],
+        verbose_name="Цена",
     )
     is_published = models.BooleanField(default=True, verbose_name="Опубликовано")
     

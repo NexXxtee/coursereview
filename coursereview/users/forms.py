@@ -36,15 +36,15 @@ class LoginUserForm(AuthenticationForm):
         password = self.cleaned_data.get('password')
 
         if username and password:
-            self.user_cache = authenticate(
+            user_cache = authenticate(
                 self.request, username=username, password=password
             )
-            if self.user_cache is None:
+            if user_cache is None:
                 raise forms.ValidationError(
                     self.error_messages['invalid_login'],
                     code='invalid_login'
                 )
-            elif not self.user_cache.is_active:
+            elif not user_cache.is_active:
                 raise forms.ValidationError(
                     self.error_messages['inactive'],
                     code='inactive'
@@ -102,12 +102,8 @@ class RegisterUserForm(UserCreationForm):
         return password2
 
     def save(self, commit=True):
-        """Сохранение пользователя"""
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data['password1'])
-        if commit:
-            user.save()
-        return user
+        return super().save(commit=commit)
+
     
     
 class ProfileUserForm(forms.ModelForm):

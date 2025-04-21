@@ -5,6 +5,7 @@ from .models import Course, Category
 @admin.register(Course)
 class CourseAdmin(admin.ModelAdmin):
     list_display = ('title', 'category', 'created_at', 'updated_at', 'is_published')
+    readonly_fields = ('created_at', 'updated_at')
     list_filter = ('category', 'created_at', 'updated_at')
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}
@@ -24,6 +25,6 @@ class CourseAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}
-    
+    search_fields = ('name',)
     
     

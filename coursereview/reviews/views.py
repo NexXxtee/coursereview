@@ -12,7 +12,7 @@ class CourseListView(ListView):
     template_name = 'reviews/course_list.html'
     context_object_name = 'courses'
     ordering = ['-created_at']  # Newest first
-    
+    paginate_by = 10
 
 class CourseDetailView(DetailView):
     model = Course
