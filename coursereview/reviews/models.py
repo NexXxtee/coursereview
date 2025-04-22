@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth import authenticate, login, logout, get_user_model
+from django.conf import settings
+
 
 class Course(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название курса")
@@ -56,11 +58,18 @@ class Category(models.Model):
         return self.name
     
 
-class ReviewVerification(models.Model):
-    # Верификация права на отзыв
-    user = models.ForeignKey('users.User', on_delete=models.CASCADE, verbose_name="Пользователь")
+class CourseReview(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Пользователь")
     course = models.ForeignKey('Course', on_delete=models.CASCADE, verbose_name="Курс")
-    certificate_image = models.ImageField(upload_to='certificates/%Y/%m/%d/', verbose_name="Сертификат/Чек")
+    rating = models.PositiveSmallIntegerField(
+        choices=[(i, str(i)) for i in range(1, 6)],
+        verbose_name="Оценка"
+    )
+    comment = models.TextField(max_length=5000, verbose_name="Комментарий")
+    certificate_image = models.ImageField(
+        upload_to='certificates/%Y/%m/%d/',
+        verbose_name="Сертификат/Чек"
+    )
     status = models.CharField(
         max_length=20,
         choices=[
@@ -71,36 +80,21 @@ class ReviewVerification(models.Model):
         default='pending',
         verbose_name="Статус"
     )
-    submitted_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата подачи")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     reviewed_at = models.DateTimeField(null=True, blank=True, verbose_name="Дата рассмотрения")
     reviewed_by = models.ForeignKey(
-        'users.User',
+        settings.AUTH_USER_MODEL,
         on_delete=models.SET_NULL,
         null=True,
         related_name='reviews_moderated',
         verbose_name="Проверил"
     )
 
-class Review(models.Model):
-    # Отзывы
-    verification = models.OneToOneField(
-        ReviewVerification,
-        on_delete=models.CASCADE,
-        verbose_name="Верификация"
-    )
-    rating = models.PositiveSmallIntegerField(
-        choices=[(i, str(i)) for i in range(1, 6)],
-        verbose_name="Оценка"
-    )
-    comment = models.TextField(
-        max_length=5000,
-        verbose_name="Комментарий"
-    )
-    created_at = models.DateTimeField(
-        auto_now_add=True,
-        verbose_name="Дата создания"
-    )
-    is_published = models.BooleanField(
-        default=False,
-        verbose_name="Опубликован"
-    )
+    class Meta:
+        verbose_name = "Отзыв о курсе"
+        verbose_name_plural = "Отзывы о курсах"
+        ordering = ['-created_at']
+        unique_together = ['user', 'course']  # Один пользователь - один отзыв для курса
+
+    def __str__(self):
+        return f"Отзыв от {self.user} на курс {self.course}"

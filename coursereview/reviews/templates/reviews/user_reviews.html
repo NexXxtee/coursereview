@@ -1,0 +1,75 @@
+{% block title %}Мои отзывы{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="h2 mb-4">Мои отзывы</h1>
+
+    {% if reviews %}
+        <div class="row">
+            {% for review in reviews %}
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h5 class="card-title mb-0">
+                                    <a href="{% url 'reviews:course_detail' review.course.slug %}" 
+                                       class="text-decoration-none">
+                                        {{ review.course.title }}
+                                    </a>
+                                </h5>
+                                <span class="badge {% if review.status == 'approved' %}bg-success
+                                                  {% elif review.status == 'rejected' %}bg-danger
+                                                  {% else %}bg-warning{% endif %}">
+                                    {{ review.get_status_display }}
+                                </span>
+                            </div>
+
+                            <div class="mb-3">
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    {% else %}
+                                        <i class="bi bi-star text-warning"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+
+                            <p class="card-text">{{ review.comment|truncatewords:50 }}</p>
+                            
+                            <div class="text-muted small">
+                                <p class="mb-1">
+                                    <i class="bi bi-clock"></i> 
+                                    Отправлено: {{ review.created_at|date:"d.m.Y" }}
+                                </p>
+                                {% if review.reviewed_at %}
+                                    <p class="mb-0">
+                                        <i class="bi bi-check-circle"></i>
+                                        Проверено: {{ review.reviewed_at|date:"d.m.Y" }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if review.certificate_image %}
+                            <div class="card-footer bg-light border-0">
+                                <small class="text-muted">
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    Сертификат прикреплен
+                                </small>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-chat-square-text text-muted" style="font-size: 3rem;"></i>
+            <h3 class="h4 mt-3 text-muted">У вас пока нет отзывов</h3>
+            <p class="text-muted">Найдите интересный курс и поделитесь своим мнением о нем</p>
+            <a href="{% url 'reviews:course_list' %}" class="btn btn-primary mt-3">
+                Перейти к курсам
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

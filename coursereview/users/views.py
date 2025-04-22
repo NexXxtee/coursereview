@@ -22,6 +22,20 @@ class LoginUser(LoginView):
     def get_success_url(self):
         return self.request.GET.get('next', '/')
 
+    
+    def form_valid(self, form):
+    # Указал явно, так как Джанго ругается на бекенд аутентификации без него 
+        """Process valid form data."""
+        user = authenticate(
+            self.request,
+            username=form.cleaned_data['username'],
+            password=form.cleaned_data['password']
+        )
+        if user is not None:
+            login(self.request, user)
+            return redirect(self.get_success_url())
+        return self.form_invalid(form)
+
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm

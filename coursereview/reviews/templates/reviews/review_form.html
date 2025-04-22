@@ -1,0 +1,69 @@
+{% block title %}Написать отзыв{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h1 class="h3 mb-4 text-center">Отзыв о курсе "{{ course.title }}"</h1>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                                <div class="alert alert-danger">{{ error }}</div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <div class="mb-4">
+                            <label for="{{ form.rating.id_for_label }}" class="form-label">{{ form.rating.label }}</label>
+                            {{ form.rating }}
+                            {% if form.rating.errors %}
+                                {% for error in form.rating.errors %}
+                                    <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="{{ form.comment.id_for_label }}" class="form-label">{{ form.comment.label }}</label>
+                            {{ form.comment }}
+                            {% if form.comment.errors %}
+                                {% for error in form.comment.errors %}
+                                    <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="{{ form.certificate_image.id_for_label }}" class="form-label">
+                                {{ form.certificate_image.label }}
+                            </label>
+                            {{ form.certificate_image }}
+                            <div class="form-text">
+                                Загрузите фото сертификата или чек об оплате курса
+                            </div>
+                            {% if form.certificate_image.errors %}
+                                {% for error in form.certificate_image.errors %}
+                                    <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                Отправить отзыв
+                            </button>
+                            <a href="{% url 'reviews:course_detail' course.slug %}" class="btn btn-outline-secondary">
+                                Вернуться к курсу
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
