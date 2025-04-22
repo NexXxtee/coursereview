@@ -40,14 +40,20 @@ class CourseReviewCreateView(LoginRequiredMixin, CreateView):
     form_class = CourseReviewForm
     template_name = 'reviews/review_form.html'
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['course'] = get_object_or_404(Course, slug=self.kwargs.get('slug'))
+        return context
+    
     def dispatch(self, request, *args, **kwargs):
         # Проверяем, не оставлял ли пользователь уже отзыв
+        self.course = get_object_or_404(Course, slug=self.kwargs.get('slug'))
         if CourseReview.objects.filter(
             user=request.user,
-            course__slug=self.kwargs['slug']
+            course=self.course
         ).exists():
             messages.error(request, 'Вы уже оставили отзыв для этого курса.')
-            return redirect('reviews:course_detail', slug=self.kwargs['slug'])
+            return redirect('reviews:course_detail', slug=self.course.slug)
         return super().dispatch(request, *args, **kwargs)
     
     def form_valid(self, form):
