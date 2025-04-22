@@ -31,7 +31,7 @@ class CourseDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         # Добавляем в контекст только одобренные отзывы
-        context['reviews'] = self.object.coursereview_set.filter(status='approved')
+        context['approved_reviews'] = self.object.coursereview_set.filter(status='approved')
         return context
 
 
@@ -52,7 +52,7 @@ class CourseReviewCreateView(LoginRequiredMixin, CreateView):
             user=request.user,
             course=self.course
         ).exists():
-            messages.error(request, 'Вы уже оставили отзыв для этого курса.')
+            messages.success(request, 'Вы уже оставили отзыв для этого курса.')
             return redirect('reviews:course_detail', slug=self.course.slug)
         return super().dispatch(request, *args, **kwargs)
     

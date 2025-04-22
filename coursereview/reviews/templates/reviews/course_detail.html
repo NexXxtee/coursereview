@@ -43,70 +43,76 @@
       <!-- Секция отзывов -->
       <div class="reviews mt-5">
         <h2 class="h4 mb-4">Отзывы о курсе</h2>
-        {% for review in course.reviews.all %}
-        <div class="card border-0 shadow-sm mb-3">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-              <h5 class="card-title mb-0">{{ review.author }}</h5>
-              <div class="rating">
-                {% for i in "12345"|make_list %} {% if forloop.counter <= review.rating %}
-                <i class="bi bi-star-fill text-warning"></i>
-                {% else %}
-                <i class="bi bi-star text-warning"></i>
-                {% endif %} 
-                {% endfor %}
-              </div>
+        {% if approved_reviews %}
+            {% for review in approved_reviews %}
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <h5 class="card-title mb-0">{{ review.user.username }}</h5>
+                                {% if review.reviewed_at %}
+                                    <small class="text-muted">
+                                        Опубликовано: {{ review.created_at|date:"d.m.Y" }}
+                                    </small>
+                                {% endif %}
+                            </div>
+                            <div class="rating">
+                                {% for i in "12345"|make_list %}
+                                    {% if forloop.counter <= review.rating %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    {% else %}
+                                        <i class="bi bi-star text-warning"></i>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <p class="card-text">{{ review.comment }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="text-center text-muted py-5">
+                <i class="bi bi-chat-square-text" style="font-size: 2rem"></i>
+                <p class="mt-3">Пока нет отзывов об этом курсе</p>
             </div>
-            <p class="card-text">{{ review.text }}</p>
-            <small class="text-muted">
-              {{ review.created_at|date:"d.m.Y" }}
-            </small>
-          </div>
-        </div>
-        {% empty %}
-        <div class="text-center text-muted py-5">
-          <i class="bi bi-chat-square-text" style="font-size: 2rem"></i>
-          <p class="mt-3">Пока нет отзывов об этом курсе</p>
-        </div>
-        {% endfor %}
-      </div>
+        {% endif %}
     </div>
 
     <!-- Боковая панель -->
     <div class="col-lg-4">
-      <div class="card border-0 shadow-sm p-4 sticky-top" style="top: 20px">
-        <h4 class="card-title mb-4">О курсе</h4>
-        <ul class="list-unstyled">
-          <li class="mb-3">
-            <i class="bi bi-folder text-primary"></i>
-            <strong>Категория:</strong> {{ course.category.name }}
-          </li>
-          {% if course.price %}
-          <li class="mb-3">
-            <i class="bi bi-currency-dollar text-primary"></i>
-            <strong>Стоимость:</strong> {{ course.price }} Тг
-          </li>
-          {% endif %}
-          <li class="mb-3">
-            <i class="bi bi-calendar3 text-primary"></i>
-            <strong>Добавлен:</strong> {{ course.created_at|date:"d.m.Y" }}
-          </li>
-        </ul>
-        <div class="d-grid gap-2">
-            <a href="#" class="btn btn-primary">Записаться на курс</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'reviews:create_review' course.slug %}" class="btn btn-outline-primary">
-                    <i class="bi bi-pencil-square me-2"></i>Оставить отзыв
+        <div class="card border-0 shadow-sm p-4 sticky-top" style="top: 20px">
+            <h4 class="card-title mb-4">О курсе</h4>
+            <ul class="list-unstyled">
+                <li class="mb-3">
+                    <i class="bi bi-folder text-primary"></i>
+                    <strong>Категория:</strong> {{ course.category.name }}
+                </li>
+                {% if course.price %}
+                <li class="mb-3">
+                    <i class="bi bi-currency-dollar text-primary"></i>
+                    <strong>Стоимость:</strong> {{ course.price }} Тг
+                </li>
+                {% endif %}
+                <li class="mb-3">
+                    <i class="bi bi-calendar3 text-primary"></i>
+                    <strong>Добавлен:</strong> {{ course.created_at|date:"d.m.Y" }}
+                </li>
+            </ul>
+            <div class="d-grid gap-2">
+                <a href="#" class="btn btn-primary">Записаться на курс</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'reviews:create_review' course.slug %}" class="btn btn-outline-primary">
+                        <i class="bi bi-pencil-square me-2"></i>Оставить отзыв
+                    </a>
+                {% endif %}
+                <a href="{% url 'reviews:course_list' %}" class="btn btn-outline-secondary">
+                    Назад к списку
                 </a>
-            {% endif %}
-            <a href="{% url 'reviews:course_list' %}" class="btn btn-outline-secondary">
-                Назад к списку
-            </a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>
 {% endblock %} 
 
 {% block extra_css %}
