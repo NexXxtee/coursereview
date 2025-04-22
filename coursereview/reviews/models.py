@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.conf import settings
-
+from django.db.models import Avg
 
 class Course(models.Model):
     title = models.CharField(max_length=255, verbose_name="Название курса")
@@ -25,7 +25,7 @@ class Course(models.Model):
     )
     price = models.DecimalField(
         max_digits=10, 
-        decimal_places=2, 
+        decimal_places=0, 
         null=True, 
         blank=True,
         validators = [MinValueValidator(0)],
@@ -38,6 +38,10 @@ class Course(models.Model):
     
     def get_absolute_url(self):
         return reverse('reviews:course_detail', kwargs={'slug': self.slug})
+    
+    def get_average_rating(self):
+        average = self.coursereview_set.filter(status='approved').aggregate(Avg('rating'))['rating__avg']
+        return round(average, 1) if average else 0.0
     
     class Meta:
         verbose_name = "Курс"

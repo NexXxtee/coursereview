@@ -18,9 +18,23 @@ class CourseListView(ListView):
     template_name = 'reviews/course_list.html'
     context_object_name = 'courses'
     ordering = ['-created_at']  # Newest first
-    paginate_by = 10
+    paginate_by = 3
 
-
+    def get_queryset(self):
+        queryset = Course.objects.filter(is_published=True).prefetch_related('coursereview_set')
+        category_slug = self.request.GET.get('category')
+        if category_slug:
+            queryset = queryset.filter(category__slug=category_slug)
+        return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        context['current_category'] = self.request.GET.get('category')
+        for course in context['courses']:
+            course.average_rating = course.get_average_rating()
+        return context
+        
 class CourseDetailView(DetailView):
     model = Course
     template_name = 'reviews/course_detail.html'
@@ -32,6 +46,7 @@ class CourseDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         # Добавляем в контекст только одобренные отзывы
         context['approved_reviews'] = self.object.coursereview_set.filter(status='approved')
+        context['average_rating'] = self.object.get_average_rating()
         return context
 
 
