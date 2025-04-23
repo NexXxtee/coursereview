@@ -4,10 +4,16 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from .forms import LoginUserForm, ProfileUserForm, RegisterUserForm
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView
 from coursereview import settings
 from django.urls import reverse, reverse_lazy
 from django.contrib import messages
+from reviews.models import CourseReview
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 def user_logout(request):
     """Logout view"""
@@ -57,3 +63,16 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
         return self.request.user
     
 
+class UserReviewsListView(LoginRequiredMixin, ListView):
+    model = CourseReview
+    template_name = 'users/user_reviews.html'
+    context_object_name = 'reviews'
+    paginate_by = 5
+
+    def get_queryset(self):
+        queryset = CourseReview.objects.filter(user=self.request.user)
+        status = self.request.GET.get('status')
+        if status in ['pending', 'approved', 'rejected']:
+            queryset = queryset.filter(status=status)
+            logger.info(f'Пользователь {self.request.user} отфильтровал свои отзывы по статусу: {status}')
+        return queryset.order_by('-created_at')

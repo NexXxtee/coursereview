@@ -20,3 +20,25 @@ Traceback (most recent call last):
                                    ^^^^^^^^^^^^^
 AttributeError: 'Course' object has no attribute 't'
 2025-04-23 15:12:40,638 - ERROR - basehttp - basehttp.py - "GET /course/decodekz/ HTTP/1.1" 500 87617
+2025-04-23 15:51:59,207 - ERROR - log - log.py - Internal Server Error: /course/decodekz/
+Traceback (most recent call last):
+  File "c:\Final_project\cvenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Final_project\cvenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Final_project\cvenv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Final_project\cvenv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Final_project\cvenv\Lib\site-packages\django\views\generic\detail.py", line 113, in get
+    context = self.get_context_data(object=self.object)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Final_project\coursereview\reviews\views.py", line 58, in get_context_data
+    logger.info(f'Просмотр курса: {self.object.t} (slug: {self.object.slug})')
+                                   ^^^^^^^^^^^^^
+AttributeError: 'Course' object has no attribute 't'
+2025-04-23 15:51:59,209 - ERROR - basehttp - basehttp.py - "GET /course/decodekz/ HTTP/1.1" 500 87493

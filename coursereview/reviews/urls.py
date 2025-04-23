@@ -8,6 +8,5 @@ urlpatterns = [
     path('about/', views.about_view, name='about'),
     path('course/<slug:slug>/', views.CourseDetailView.as_view(), name='course_detail'),
     path('course/<slug:slug>/review/', views.CourseReviewCreateView.as_view(), name='create_review'),
-    path('my-reviews/', views.UserReviewsListView.as_view(), name='user_reviews'),
 ]
 
