@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # apps
     "users",
     "reviews",
+    "debug_toolbar",
     # для фронта
     "bootstrap4",
     # Аутентификая через Google
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -59,6 +61,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'allauth.account.middleware.AccountMiddleware'
+    
 ]
 
 ROOT_URLCONF = "coursereview.urls"
@@ -256,4 +259,19 @@ LOGGING = {
             'propagate': True,
         },
     },
+}
+
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+    }
 }

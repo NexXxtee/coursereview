@@ -151,3 +151,100 @@
 2025-04-23 15:55:23,474 - INFO - basehttp - basehttp.py - "GET /user/my-reviews/?status=pending HTTP/1.1" 200 4134
 2025-04-23 15:55:24,134 - INFO - basehttp - basehttp.py - "GET /user/my-reviews/ HTTP/1.1" 200 17964
 2025-04-23 15:55:27,744 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 16437
+2025-04-23 16:19:37,836 - INFO - basehttp - basehttp.py - "GET /admin/auth/group/?o=1 HTTP/1.1" 200 15327
+2025-04-23 16:19:37,900 - INFO - basehttp - basehttp.py - "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+2025-04-23 17:32:50,166 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\settings.py changed, reloading.
+2025-04-23 17:32:50,186 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\settings.py changed, reloading.
+2025-04-23 17:40:35,126 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 17:40:43,130 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 16437
+2025-04-23 17:40:43,216 - INFO - basehttp - basehttp.py - "GET /media/courses/2025/04/22/gb.jpeg HTTP/1.1" 304 0
+2025-04-23 17:40:43,220 - INFO - basehttp - basehttp.py - "GET /media/courses/2025/04/22/decode.png HTTP/1.1" 304 0
+2025-04-23 17:40:47,861 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 7834
+2025-04-23 17:40:48,894 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 7834
+2025-04-23 17:40:49,751 - INFO - basehttp - basehttp.py - "GET /about/ HTTP/1.1" 200 5043
+2025-04-23 17:40:50,315 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 16437
+2025-04-23 17:40:51,625 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 7834
+2025-04-23 17:42:40,680 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 7834
+2025-04-23 17:42:40,704 - INFO - basehttp - basehttp.py - "GET /static/img/default_user.png HTTP/1.1" 200 15584
+2025-04-23 17:42:40,915 - INFO - basehttp - basehttp.py - "GET /static/img/favicon/favicon.png HTTP/1.1" 200 1081225
+2025-04-23 17:42:47,567 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 7834
+2025-04-23 17:42:50,679 - INFO - basehttp - basehttp.py - "GET /static/img/favicon/favicon.png HTTP/1.1" 200 1081225
+2025-04-23 17:43:39,313 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\settings.py changed, reloading.
+2025-04-23 17:43:40,010 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 17:43:42,164 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 17:43:52,603 - ERROR - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 500 151187
+2025-04-23 17:43:52,905 - ERROR - basehttp - basehttp.py - "GET /favicon.ico HTTP/1.1" 500 150476
+2025-04-23 17:44:16,789 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\urls.py changed, reloading.
+2025-04-23 17:44:17,531 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\urls.py changed, reloading.
+2025-04-23 17:44:18,206 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 17:44:20,712 - INFO - basehttp - basehttp.py - "GET /user/profile/ HTTP/1.1" 200 21008
+2025-04-23 17:44:20,746 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 21683
+2025-04-23 17:44:20,759 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 14819
+2025-04-23 17:44:20,790 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+2025-04-23 17:44:20,805 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4692
+2025-04-23 17:44:24,320 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=f993d8906f2d4797a9eaeacfbe2964db&panel_id=SQLPanel HTTP/1.1" 200 40235
+2025-04-23 17:44:38,437 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:44:40,818 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=034b449c70e94f2b9d22fb6a20b74f86&panel_id=SQLPanel HTTP/1.1" 200 195912
+2025-04-23 17:46:32,234 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:46:32,255 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+2025-04-23 17:46:32,260 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2025-04-23 17:46:32,260 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+2025-04-23 17:46:32,273 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+2025-04-23 17:46:32,844 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:33,320 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:33,905 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:41,429 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=1c626b910616499aa0ddc1d830e8f51b&panel_id=StaticFilesPanel HTTP/1.1" 200 31395
+2025-04-23 17:46:42,998 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=1c626b910616499aa0ddc1d830e8f51b&panel_id=SQLPanel HTTP/1.1" 200 195908
+2025-04-23 17:46:55,102 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:57,422 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:46:57,870 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:58,426 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:58,916 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:46:59,554 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:46:59,992 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:47:00,516 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:47:01,037 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29605
+2025-04-23 17:47:01,625 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:47:02,165 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:47:02,737 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 17:47:03,470 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 18:07:54,226 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\coursereview\settings.py changed, reloading.
+2025-04-23 18:09:29,365 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 18:09:31,778 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29606
+2025-04-23 18:09:31,837 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+2025-04-23 18:09:31,837 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+2025-04-23 18:09:31,930 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2025-04-23 18:09:31,931 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+2025-04-23 18:17:50,784 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\urls.py changed, reloading.
+2025-04-23 18:17:51,459 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 18:18:30,026 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\urls.py changed, reloading.
+2025-04-23 18:18:30,678 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 18:18:34,215 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\urls.py changed, reloading.
+2025-04-23 18:18:34,843 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 18:18:37,165 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\urls.py changed, reloading.
+2025-04-23 18:18:37,884 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 18:21:23,262 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29609
+2025-04-23 18:21:23,316 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+2025-04-23 18:21:23,320 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+2025-04-23 18:21:23,353 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+2025-04-23 18:21:23,353 - INFO - basehttp - basehttp.py - "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+2025-04-23 18:21:27,803 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:21:28,922 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29560
+2025-04-23 18:21:29,449 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:21:29,887 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:21:30,662 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=e865d97c1ffd45f293256cf8635fddfc&panel_id=SQLPanel HTTP/1.1" 200 8900
+2025-04-23 18:22:21,533 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29607
+2025-04-23 18:22:23,113 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=e872f5da9fe8458189e5447c3f6ca090&panel_id=SQLPanel HTTP/1.1" 200 195912
+2025-04-23 18:23:08,026 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29607
+2025-04-23 18:23:10,337 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:11,332 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=667d9472bedf45f98621019123592c18&panel_id=SQLPanel HTTP/1.1" 200 8901
+2025-04-23 18:23:25,002 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29607
+2025-04-23 18:23:26,689 - INFO - basehttp - basehttp.py - "GET /__debug__/render_panel/?store_id=5998183f82ff43c586ea21fb6e84ea60&panel_id=SQLPanel HTTP/1.1" 200 195914
+2025-04-23 18:23:28,347 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:28,889 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:29,253 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:29,631 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:30,001 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
+2025-04-23 18:23:30,510 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29560
+2025-04-23 18:23:30,940 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29560
+2025-04-23 18:23:31,246 - INFO - basehttp - basehttp.py - "GET / HTTP/1.1" 200 29559
