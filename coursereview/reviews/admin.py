@@ -41,7 +41,7 @@ class CourseReviewAdmin(admin.ModelAdmin):
     
     def certificate_preview(self, obj):
         if obj.certificate_image:
-            return format_html('<img src="{}" width="300" height="auto" />', obj.certificate_image.url)
+            return format_html('<img src="{}" width="900" height="auto" />', obj.certificate_image.url)
         return "Нет изображения"
     
     certificate_preview.short_description = "Предпросмотр сертификата"

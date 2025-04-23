@@ -8,6 +8,11 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Course, Category, CourseReview
 from .forms import CourseReviewForm
+import logging
+
+
+logger = logging.getLogger(__name__)
+
 
 def about_view(request):
     return render(request, 'reviews/about.html')
@@ -44,9 +49,17 @@ class CourseDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        logger.info(f'Просмотр курса: {self.object.t} (slug: {self.object.slug})')
         # Добавляем в контекст только одобренные отзывы
-        context['approved_reviews'] = self.object.coursereview_set.filter(status='approved')
-        context['average_rating'] = self.object.get_average_rating()
+        try:
+            context['approved_reviews'] = self.object.coursereview_set.filter(status='approved')
+            context['average_rating'] = self.object.get_average_rating()
+            logger.info(f'Средний рейтинг курса {self.object.title}: {context["average_rating"]} - Успех')
+        except Exception as e:
+            logger.error(f'Ошибка при получении отзывов для курса {self.object.title}: {e}')
+            context['approved_reviews'] = []
+            context['average_rating'] = 0.0
+            
         return context
 
 

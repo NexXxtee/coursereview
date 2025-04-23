@@ -1,0 +1,14 @@
+2025-04-23 15:12:08,367 - INFO - views - views.py - Просмотр курса: DecodeKZ (slug: decodekz)
+2025-04-23 15:12:08,371 - INFO - views - views.py - Средний рейтинг курса DecodeKZ: 1.7
+2025-04-23 15:12:08,397 - INFO - basehttp - basehttp.py - "GET /course/decodekz/ HTTP/1.1" 200 15893
+2025-04-23 15:12:36,166 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\views.py changed, reloading.
+2025-04-23 15:12:36,839 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 15:12:38,519 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 15:12:40,638 - ERROR - basehttp - basehttp.py - "GET /course/decodekz/ HTTP/1.1" 500 87617
+2025-04-23 15:15:15,957 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\views.py changed, reloading.
+2025-04-23 15:15:16,540 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 15:15:16,605 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\views.py changed, reloading.
+2025-04-23 15:15:19,550 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\views.py changed, reloading.
+2025-04-23 15:15:20,127 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader
+2025-04-23 15:15:22,043 - INFO - autoreload - autoreload.py - C:\Final_project\coursereview\reviews\views.py changed, reloading.
+2025-04-23 15:15:22,671 - INFO - autoreload - autoreload.py - Watching for file changes with StatReloader

@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView, UpdateView
 from coursereview import settings
 from django.urls import reverse, reverse_lazy
-
+from django.contrib import messages
 
 def user_logout(request):
     """Logout view"""
@@ -50,6 +50,7 @@ class ProfileUser(LoginRequiredMixin, UpdateView):
 
 
     def get_success_url(self):
+        messages.success(self.request, 'Профиль изменен')
         return reverse_lazy('users:profile')
 
     def get_object(self, queryset=None):
